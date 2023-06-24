@@ -10,7 +10,7 @@ use Throwable;
 
 class ExampleTest extends PantherTestCase
 {
-    private static $sdk;
+    private static $carbonate;
     private static $browser;
 
     public static function setUpBeforeClass(): void
@@ -19,7 +19,7 @@ class ExampleTest extends PantherTestCase
 
         self::$browser = new PantherBrowser(PantherClient::createChromeClient());
 
-        self::$sdk = new SDK(
+        self::$carbonate = new SDK(
             self::$browser,
             __DIR__ .'/'. pathinfo(__FILE__, PATHINFO_FILENAME),
             //"<your user ID>", // TODO: Change me
@@ -30,37 +30,37 @@ class ExampleTest extends PantherTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        self::$sdk->startTest(__CLASS__, $this->getName());
+        self::$carbonate->startTest(__CLASS__, $this->getName());
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        self::$sdk->endTest();
+        self::$carbonate->endTest();
     }
 
     protected function onNotSuccessfulTest(Throwable $t): void
     {
-        self::$sdk->handleFailedTest($t);
+        self::$carbonate->handleFailedTest($t);
         parent::onNotSuccessfulTest($t);
     }
 
     public function testSelectBirthdayFromTheDropdown()
     {
-        self::$sdk->load(
+        self::$carbonate->load(
             'https://carbonate.dev/demo-form'
         );
 
-        self::$sdk->action('select Birthday from the event type dropdown');
+        self::$carbonate->action('select Birthday from the event type dropdown');
 
         $this->assertTrue(
-            self::$sdk->assertion('the event type dropdown should be set to Birthday')
+            self::$carbonate->assertion('the event type dropdown should be set to Birthday')
         );
     }
 
     public function testSelectBirthdayFromTheDropdownAdvanced()
     {
-        $select = new WebDriverSelect(self::$sdk->lookup('the event type dropdown'));
+        $select = new WebDriverSelect(self::$carbonate->lookup('the event type dropdown'));
 
         $select->selectByVisibleText('Birthday');
 
