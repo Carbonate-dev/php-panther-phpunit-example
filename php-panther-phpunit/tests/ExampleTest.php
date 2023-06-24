@@ -4,8 +4,8 @@ namespace Tests;
 use Carbonate\SDK;
 use Carbonate\Browser\PantherBrowser;
 use Facebook\WebDriver\WebDriverSelect;
-use Symfony\Component\Panther\PantherTestCase;
 use Symfony\Component\Panther\Client as PantherClient;
+use Symfony\Component\Panther\PantherTestCase;
 use Throwable;
 
 class ExampleTest extends PantherTestCase
@@ -15,6 +15,8 @@ class ExampleTest extends PantherTestCase
 
     public static function setUpBeforeClass(): void
     {
+        parent::setUpBeforeClass();
+
         self::$browser = new PantherBrowser(PantherClient::createChromeClient());
 
         self::$sdk = new SDK(
@@ -62,6 +64,9 @@ class ExampleTest extends PantherTestCase
 
         $select->selectByVisibleText('Birthday');
 
-        $this->assertSame('Birthday', $select->getFirstSelectedOption()->getAttribute('value'));
+        $this->assertSame(
+            'Birthday',
+            $select->getFirstSelectedOption()->getAttribute('value')
+        );
     }
 }
