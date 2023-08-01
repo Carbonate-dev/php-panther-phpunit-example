@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">
-    Carbonate SDK
+    Carbonate example with PHP, PHPUnit and Symfony Panther
   </h1>
 </p>
 
