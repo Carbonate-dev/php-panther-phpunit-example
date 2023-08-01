@@ -4,7 +4,7 @@
   </h1>
 </p>
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Carbonate-dev/sdk-php/php.yml)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Carbonate-dev/php-panther-phpunit-example/php.yml)
 
 Carbonate turns simple language driven instructions into end-to-end tests. This is an example repository demonstrating how to set up the Carbonate PHP SDK using PHPUnit and Symfony Panther.
 
