@@ -1,0 +1,58 @@
+name: PHP CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php-version: ["7.4", "8.0", "8.1", "8.2"]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+
+    - name: Cache Chrome
+      id: chrome-cache
+      uses: actions/cache@v3
+      with:
+        path: /opt/hostedtoolcache/chromium/
+        key: ${{ runner.os }}-chrome
+        restore-keys: |
+          ${{ runner.os }}-chrome
+
+    - name: Install Chrome
+      uses: browser-actions/setup-chrome@v1
+
+    - name: Detect drivers
+      run: vendor/bin/bdi detect drivers
+
+    - name: Run test suite
+      run: composer run-script test
+      env:
+        CARBONATE_USER_ID: ${{ secrets.CARBONATE_USER_ID }}
+        CARBONATE_API_KEY: ${{ secrets.CARBONATE_API_KEY }}
