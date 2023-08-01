@@ -27,6 +27,13 @@ class ExampleTest extends PantherTestCase
         );
     }
 
+    public static function tearDownAfterClass(): void
+    {
+        parent::tearDownAfterClass();
+
+        self::$browser->close();
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

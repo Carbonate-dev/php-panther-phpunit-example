@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fab134923a3ad4eecef88fe9c47f452a",
+    "content-hash": "1f78067da1eae6210c48c84146dfba9b",
     "packages": [],
     "packages-dev": [
         {
             "name": "carbonate/sdk",
-            "version": "dev-master",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Carbonate-dev/sdk-php.git",
-                "reference": "74b4881ae672aa8b61fdf76535ffed7adb321e07"
+                "reference": "4dc209ad51d6aaadde4721f30de5c509474849a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Carbonate-dev/sdk-php/zipball/74b4881ae672aa8b61fdf76535ffed7adb321e07",
-                "reference": "74b4881ae672aa8b61fdf76535ffed7adb321e07",
+                "url": "https://api.github.com/repos/Carbonate-dev/sdk-php/zipball/4dc209ad51d6aaadde4721f30de5c509474849a2",
+                "reference": "4dc209ad51d6aaadde4721f30de5c509474849a2",
                 "shasum": ""
             },
             "require": {
@@ -33,7 +33,6 @@
                 "phpunit/phpunit": "^9.6",
                 "symfony/panther": "^1.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -47,9 +46,9 @@
             "description": "Carbonate turns simple language driven instructions into end-to-end tests",
             "support": {
                 "issues": "https://github.com/Carbonate-dev/sdk-php/issues",
-                "source": "https://github.com/Carbonate-dev/sdk-php/tree/master"
+                "source": "https://github.com/Carbonate-dev/sdk-php/tree/0.0.4"
             },
-            "time": "2023-06-24T21:56:14+00:00"
+            "time": "2023-07-15T00:43:57+00:00"
         },
         {
             "name": "dbrekelmans/bdi",
@@ -4277,9 +4276,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "carbonate/sdk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
