@@ -55,7 +55,7 @@ class ExampleTest extends PantherTestCase
     public function testSelectBirthdayFromTheDropdown()
     {
         self::$carbonate->load(
-            'https://carbonate.dev/demo-form'
+            'https://carbonate.dev/demo-form.html'
         );
 
         self::$carbonate->action('select Birthday from the event type dropdown');
@@ -67,6 +67,10 @@ class ExampleTest extends PantherTestCase
 
     public function testSelectBirthdayFromTheDropdownAdvanced()
     {
+        self::$carbonate->load(
+            'https://carbonate.dev/demo-form.html'
+        );
+        
         $select = new WebDriverSelect(self::$carbonate->lookup('the event type dropdown'));
 
         $select->selectByVisibleText('Birthday');
